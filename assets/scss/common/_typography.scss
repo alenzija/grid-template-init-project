@@ -1,0 +1,51 @@
+@use "../mixins/" as *;
+@use "../presets/" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: $color-light;
+}
+
+html {
+  color: $color-gray;
+  font-family: $font-main;
+  font-size: $font-size;
+  overflow-y: scroll;
+}
+
+h2 {
+  margin: 0;
+  font-size: 2.5rem;
+  letter-spacing: 0.25rem;
+  line-height: 3rem;
+  color: $color-primary;
+  font-weight: 700;
+  font-family: $font-header;
+}
+
+h1 {
+  font-weight: 300;
+  font-family: $font-header;
+  letter-spacing: 0.075em;
+  font-size: 3.75rem;
+  line-height: 1.2em;
+
+  @media (min-width: $md) {
+    font-size: 2.5rem;
+  }
+  @media (max-width: $md - 1) {
+    font-size: 1.875rem;
+  }
+  @media (min-width: $lg) {
+    font-size: 3.75rem;
+  }
+}
+
+input {
+  border: none;
+}

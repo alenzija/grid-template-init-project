@@ -1,0 +1,20 @@
+@use "../presets/" as *;
+
+%container {
+  padding-left: $gap;
+  padding-right: $gap;
+  max-width: $ul;
+  text-align: center;
+  margin: 0 auto;
+}
+
+%btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.125rem solid $color-light;
+  letter-spacing: 0.125rem;
+  color: $color-light;
+  font-weight: 400;
+  font-family: $font-main;
+}

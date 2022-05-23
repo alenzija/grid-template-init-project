@@ -1,0 +1,131 @@
+@use "../../mixins/" as *;
+@use "../../presets/" as *;
+.about {
+  /* background-color: $color-gray-light; */
+  position: relative;
+
+  &-title {
+    margin-bottom: $gap-x3;
+
+    @media (max-width: $lg) and (min-width: $md) {
+      font-size: 2rem;
+      letter-spacing: 0.1875;
+      line-height: $gap-x2;
+    }
+    @media (max-width: $md - 0.2) {
+      font-size: 1.5rem;
+      letter-spacing: 0.125rem;
+      line-height: 2rem;
+    }
+    @media (max-width: $sm) {
+      text-align: center;
+    }
+  }
+
+  &-container {
+    @extend %container;
+    padding: $gap-x3 $gap-sm;
+    display: flex;
+    align-items: center;
+    gap: $gap-x2;
+    @media (max-width: $sm) {
+      gap: 0;
+      flex-direction: column;
+    }
+
+    &__line {
+      margin-top: $gap-x5;
+      border-left: 1px solid $color-gray;
+      height: calc($gap-x5 * 1.7);
+      @media (max-width: $sm) {
+        display: none;
+      }
+    }
+
+    &__text {
+      text-align: left;
+      font-size: 1.125rem;
+      letter-spacing: 0.0625rem;
+      line-height: 1.5rem;
+      @media (max-width: $md) {
+        font-size: 1rem;
+      }
+    }
+  }
+  &__overlay {
+    background-color: $color-gray-light;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  &-action {
+    position: relative;
+    min-height: calc($gap-x5 * 1.4);
+    width: 100%;
+    &__overlay {
+      position: absolute;
+      inset: 0;
+      background-color: $color-primary;
+      z-index: -1;
+    }
+
+    &__form {
+      max-width: $ul;
+      min-height: inherit;
+      margin: auto;
+      padding: $gap-sm;
+
+      display: grid;
+      gap: $gap;
+      grid-template-areas: "nm em bn";
+      grid-template-columns: 1fr 1fr 1fr;
+      @media (max-width: $md) {
+        grid-template-areas: "nm nm" "em bn";
+        grid-template-columns: 1fr 1fr;
+      }
+      @media (max-width: $sm) {
+        grid-template-areas: "nm" "em" "bn";
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &__input-name,
+    &__input-email {
+      display: block;
+      height: $gap-x3;
+      border-bottom: 2px solid $color-light;
+      padding-left: $gap-x2;
+      font-size: 1.125rem;
+      letter-spacing: 0.125rem;
+      line-height: 2.4375rem;
+      color: $color-light;
+      font-weight: 400;
+      font-family: $font-main;
+    }
+    &__input-name {
+      background-color: rgba($color-light, 0.15);
+      grid-area: nm;
+    }
+    &__input-email {
+      background-color: rgba($color-light, 0.05);
+      grid-area: em;
+    }
+
+    &__btn {
+      @extend %btn;
+      height: $gap-x3;
+      background-color: rgba($color-light, 0.1);
+      color: $color-light;
+      font-weight: 400;
+      border-color: transparent;
+      border-bottom: 2px solid $color-light;
+      transition: 0.5s;
+      grid-area: bn;
+      &:hover,
+      &:focus {
+        border: 2px solid $color-light;
+        background-color: $color-accent;
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@use "../mixins/" as *;
+@use "../presets/" as *;
+
+.btn {
+  @extend %btn;
+  background-color: rgba($color-light, 0.1);
+  transition: 0.5s;
+  &:hover,
+  &:focus {
+    background-color: $color-accent;
+  }
+  @media (min-width: $lg) {
+    width: calc(2.5 * $gap-x5);
+    height: $gap-x3;
+    font-size: 1.125rem;
+  }
+
+  @media (min-width: $md) and(max-width:$lg - 0.2) {
+    height: calc($gap * 2.5);
+    width: calc($gap-x5 * 2);
+    font-size: 1rem;
+  }
+  @media (max-width: $md - 0.2) {
+    height: $gap-x2;
+    width: calc($gap-x5 * 1.7);
+    font-size: 1rem;
+  }
+}
+.btn-skills {
+  @extend %btn;
+  font-size: 1.125rem;
+  color: $color-light;
+
+  background-color: $color-gray;
+  opacity: 0.8;
+  border: 0.125rem solid $color-primary;
+  margin: auto;
+  transition: 0.5s;
+
+  &:hover,
+  &:focus {
+    background-color: $color-accent;
+  }
+
+  @media (min-width: $sm) {
+    width: calc(3.5 * $gap-x5);
+
+    height: $gap-x3;
+  }
+  @media (max-width: $sm - 0.2) {
+    width: calc(100% - $gap-x2);
+
+    height: $gap-x3;
+  }
+}
